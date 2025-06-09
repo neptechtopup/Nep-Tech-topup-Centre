@@ -1,93 +1,43 @@
-
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nep Tech Topup Centre</title>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("hIO4q6WFLjqFgvnqF");
-    })();
-  </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-    h2 { text-align: center; }
-    form { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
-    label { display: block; margin-top: 15px; }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #28a745;
-      color: white;
-      padding: 10px;
-      border: none;
-      margin-top: 15px;
-      width: 100%;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover { background: #218838; }
-    .qr { text-align: center; margin-top: 20px; }
-    .qr img { max-width: 200px; }
-  </style>
 </head>
 <body>
-  <h2>Nep Tech Topup Centre</h2>
+
+  <h2>Free Fire Topup Form</h2>
   <form id="topupForm">
-    <label>आपका नाम:</label>
-    <input type="text" name="name" required />
+    <label for="name">Your Name:</label><br>
+    <input type="text" id="name" required><br><br>
 
-    <label>आपका ईमेल:</label>
-    <input type="email" name="email" required />
+    <label for="uid">Free Fire UID:</label><br>
+    <input type="text" id="uid" required><br><br>
 
-    <label>Free Fire UID:</label>
-    <input type="text" name="title" required />
+    <label for="amount">Diamond Amount:</label><br>
+    <input type="text" id="amount" required><br><br>
 
-    <label>डायमंड या मेंबरशिप चुनें:</label>
-    <select name="message" required>
-      <option value="">-- चयन करें --</option>
-      <option value="50 Diamond - रु 55">50 Diamond - रु 55</option>
-      <option value="115 Diamond - रु 100">115 Diamond - रु 100</option>
-      <option value="240 Diamond - रु 200">240 Diamond - रु 200</option>
-      <option value="610 Diamond - रु 500">610 Diamond - रु 500</option>
-      <option value="1240 Diamond - रु 950">1240 Diamond - रु 950</option>
-      <option value="2530 Diamond - रु 1950">2530 Diamond - रु 1950</option>
-      <option value="Monthly Membership - रु 950">Monthly Membership - रु 950</option>
-      <option value="Weekly Membership - रु 200">Weekly Membership - रु 200</option>
-    </select>
+    <label for="payment">Payment Method:</label><br>
+    <select id="payment" required>
+      <option value="eSewa">eSewa</option>
+      <option value="Khalti">Khalti</option>
+      <option value="IME Pay">IME Pay</option>
+    </select><br><br>
 
-    <button type="submit">ऑर्डर करें</button>
+    <label for="esewa">Enter your eSewa number:</label><br>
+    <input type="text" id="esewa" required><br><br>
+
+    <label for="number">Your Contact Number:</label><br>
+    <input type="text" id="number" required><br><br>
+
+    <button type="submit">Place Order</button>
   </form>
 
-  <div class="qr">
-    <h3>eSewa QR कोड:</h3>
-    <img src="qr.png" alt="eSewa QR Code" />
-    <p>eSewa ID: 9821043256</p>
-  </div>
+  <!-- EmailJS library -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <!-- Your script -->
+  <script src="script.js"></script>
 
-  <script>
-    document.getElementById('topupForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      emailjs.sendForm('service_qahqjrv', 'template_p7f8aws', this)
-        .then(function() {
-          alert('आपका ऑर्डर सफलतापूर्वक भेजा गया है!');
-        }, function(error) {
-          alert('कुछ गलत हो गया: ' + JSON.stringify(error));
-        });
-    });
-  </script>
 </body>
 </html>
