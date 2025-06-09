@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nep Tech Topup Centre</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .qr-code {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .qr-code img {
+      width: 200px;
+      height: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nep Tech Topup Centre</h1>
+    <p>Fast & Secure Free Fire Diamond Top-Up (Nepal)</p>
+  </header>
+
+  <div class="container">
+    <h2>Top-Up Form</h2>
+    <form action="https://formsubmit.co/rk9804475779@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <label for="uid">Free Fire UID (फ्री फायर यूआईडी):</label>
+      <input type="text" id="uid" name="Free Fire UID" placeholder="Enter your Free Fire UID" required />
+
+      <label for="package">Select Diamond Package (प्याकेज छान्नुहोस्):</label>
+      <select id="package" name="Diamond Package" required>
+        <option value="50 Diamonds – रु 55">50 Diamonds – रु 55</option>
+        <option value="115 Diamonds – रु 100">115 Diamonds – रु 100</option>
+        <option value="240 Diamonds – रु 200">240 Diamonds – रु 200</option>
+        <option value="610 Diamonds – रु 500">610 Diamonds – रु 500</option>
+        <option value="1240 Diamonds – रु 950">1240 Diamonds – रु 950</option>
+        <option value="2530 Diamonds – रु 1950">2530 Diamonds – रु 1950</option>
+        <option value="Monthly Membership – रु 950">Monthly Membership – रु 950</option>
+        <option value="Weekly Membership – रु 200">Weekly Membership – रु 200</option>
+      </select>
+
+      <label>Send Payment to:</label>
+      <p><strong>eSewa ID:</strong> 9821043256</p>
+
+      <div class="qr-code">
+        <p>Scan to Pay (QR):</p>
+        <img src="qr.png" alt="eSewa QR Code">
+      </div>
+
+      <label for="payer">Your eSewa Name or Number (भुक्तानी विवरण):</label>
+      <input type="text" id="payer" name="eSewa Payer Info" placeholder="Name or Number used for payment" required />
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Nep Tech Topup Centre. All rights reserved.</p>
+  </footer>
+</body>
+</html>
