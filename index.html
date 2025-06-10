@@ -1,41 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nep Tech Topup - Free Fire</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>Free Fire Diamond Top-Up</h1>
-    <p>Pay via eSewa: <strong>9821043256</strong></p>
+// EmailJS configuration
+const SERVICE_ID = 'service_3cautbu';
+const TEMPLATE_ID = 'template_kxpqasp';
+const PUBLIC_KEY = 'hIO4q6WFLjqFgvnqF';
 
-    <form id="topup-form">
-      <label for="uid">Free Fire UID:</label>
-      <input type="text" id="uid" name="uid" required />
+emailjs.init(PUBLIC_KEY);
 
-      <label for="amount">Select Top-Up Option:</label>
-      <select id="amount" name="amount" required>
-        <option value="55">50 Diamonds - रु 55</option>
-        <option value="100">115 Diamonds - रु 100</option>
-        <option value="200">240 Diamonds - रु 200</option>
-        <option value="500">610 Diamonds - रु 500</option>
-        <option value="950">1240 Diamonds - रु 950</option>
-        <option value="1950">2530 Diamonds - रु 1950</option>
-        <option value="monthly">Monthly Membership - रु 950</option>
-        <option value="weekly">Weekly Membership - रु 200</option>
-        <option value="levelup">Level Up Pass - रु 200</option>
-      </select>
+document.getElementById('topup-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
 
+  const templateParams = {
+    uid: form.uid.value,
+    amount: form.amount.value,
+  };
 
-      <button type="submit">Submit Order</button>
-    </form>
-
-    <p id="status"></p>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+    .then(() => {
+      document.getElementById('status').innerText = '✅ Order submitted successfully!';
+      form.reset();
+    }, (error) => {
+      console.error('FAILED...', error);
+      alert('❌ Error: ' + JSON.stringify(error)); // Mobile me dikhega
+      document.getElementById('status').innerText = '❌ Failed to submit order. Try again.';
+    });
+});
