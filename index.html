@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nep Tech Topup Centre</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nep Tech Topup - Free Fire</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
+  <div class="container">
+    <h1>Free Fire Diamond Top-Up</h1>
+    <p>Pay via eSewa: <strong>9821043256</strong></p>
 
-  <h2>Free Fire Topup Form</h2>
-  <form id="topupForm">
-    <label for="name">Your Name:</label><br>
-    <input type="text" id="name" required><br><br>
+    <form id="topup-form">
+      <label for="uid">Free Fire UID:</label>
+      <input type="text" id="uid" name="uid" required />
 
-    <label for="uid">Free Fire UID:</label><br>
-    <input type="text" id="uid" required><br><br>
+      <label for="amount">Select Top-Up Option:</label>
+      <select id="amount" name="amount" required>
+        <option value="55">50 Diamonds - रु 55</option>
+        <option value="100">115 Diamonds - रु 100</option>
+        <option value="200">240 Diamonds - रु 200</option>
+        <option value="500">610 Diamonds - रु 500</option>
+        <option value="950">1240 Diamonds - रु 950</option>
+        <option value="1950">2530 Diamonds - रु 1950</option>
+        <option value="monthly">Monthly Membership - रु 950</option>
+        <option value="weekly">Weekly Membership - रु 200</option>
+        <option value="levelup">Level Up Pass - रु 200</option>
+      </select>
 
-    <label for="amount">Diamond Amount:</label><br>
-    <input type="text" id="amount" required><br><br>
+      <label for="screenshot">Upload Payment Screenshot:</label>
+      <input type="file" id="screenshot" name="screenshot" accept="image/*" required />
 
-    <label for="payment">Payment Method:</label><br>
-    <select id="payment" required>
-      <option value="eSewa">eSewa</option>
-      <option value="Khalti">Khalti</option>
-      <option value="IME Pay">IME Pay</option>
-    </select><br><br>
+      <button type="submit">Submit Order</button>
+    </form>
 
-    <label for="esewa">Enter your eSewa number:</label><br>
-    <input type="text" id="esewa" required><br><br>
+    <p id="status"></p>
+  </div>
 
-    <label for="number">Your Contact Number:</label><br>
-    <input type="text" id="number" required><br><br>
-
-    <button type="submit">Place Order</button>
-  </form>
-
-  <!-- EmailJS library -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <!-- Your script -->
   <script src="script.js"></script>
-
 </body>
 </html>

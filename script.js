@@ -1,29 +1,40 @@
-(function () {
-  emailjs.init("hIO4q6WFLjqFgvnqF"); // Public Key
-})();
+// Replace with your EmailJS info
+const SERVICE_ID = 'service_3cautbu';
+const TEMPLATE_ID = 'template_kxpqasp';
+const PUBLIC_KEY = 'hIO4q6WFLjqFgvnqF';
 
-document.getElementById("topupForm").addEventListener("submit", function (e) {
+emailjs.init(PUBLIC_KEY);
+
+document.getElementById('topup-form').addEventListener('submit', function (e) {
   e.preventDefault();
+  const form = e.target;
 
-  var name = document.getElementById("name").value;
-  var uid = document.getElementById("uid").value;
-  var amount = document.getElementById("amount").value;
-  var payment = document.getElementById("payment").value;
-  var esewa = document.getElementById("esewa").value;
-  var number = document.getElementById("number").value;
+  const fileInput = document.getElementById('screenshot');
+  const file = fileInput.files[0];
+  const reader = new FileReader();
 
-  emailjs.send("service_1b2iqge", "template_ekyudkm", {
-    name: name,
-    uid: uid,
-    amount: amount,
-    payment: payment,
-    esewa: esewa,
-    number: number
-  }).then(function (response) {
-    alert("Order placed successfully!");
-    document.getElementById("topupForm").reset();
-  }, function (error) {
-    alert("Failed to place order. Please try again.");
-    console.log("FAILED...", error);
-  });
+  reader.onload = function () {
+    const base64Image = reader.result;
+
+    const templateParams = {
+      uid: form.uid.value,
+      amount: form.amount.value,
+      screenshot: base64Image,
+    };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+      .then(() => {
+        document.getElementById('status').innerText = 'Order submitted successfully!';
+        form.reset();
+      }, (error) => {
+        console.error('FAILED...', error);
+        document.getElementById('status').innerText = 'Failed to submit order. Try again.';
+      });
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    document.getElementById('status').innerText = 'Please upload a screenshot.';
+  }
 });
