@@ -23,3 +23,7 @@ document.getElementById('topup-form').addEventListener('submit', function (e) {
       document.getElementById('status').innerText = 'Failed to submit order. Try again.';
     });
 });
+<!--
+<label for="screenshot">Payment Screenshot (optional):</label>
+<input type="file" id="screenshot" name="screenshot" accept="image/*">
+-->
