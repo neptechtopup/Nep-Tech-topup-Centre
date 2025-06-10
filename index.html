@@ -1,26 +1,19 @@
-// EmailJS configuration
-const SERVICE_ID = 'service_3cautbu';
-const TEMPLATE_ID = 'template_kxpqasp';
-const PUBLIC_KEY = 'hIO4q6WFLjqFgvnqF';
+<form id="topup-form">
+  <input type="text" name="uid" placeholder="Enter Free Fire UID" required>
+  
+  <select name="amount" required>
+    <option value="">Select Diamond Package</option>
+    <option value="50 Diamond 💎रु 55">50 Diamond 💎रु 55</option>
+    <option value="115 Diamond 💎रु 100">115 Diamond 💎रु 100</option>
+    <option value="240 Diamond 💎रु 200">240 Diamond 💎रु 200</option>
+    <option value="610 Diamond 💎रु 500">610 Diamond 💎रु 500</option>
+    <option value="1240 Diamond 💎रु 950">1240 Diamond 💎रु 950</option>
+    <option value="2530 Diamond 💎रु 1950">2530 Diamond 💎रु 1950</option>
+    <option value="Monthly Membership 💎रु 950">Monthly Membership 💎रु 950</option>
+    <option value="Weekly Membership 💎रु 200">Weekly Membership 💎रु 200</option>
+    <option value="Level Up Pass 💎रु 200">Level Up Pass 💎रु 200</option>
+  </select>
 
-emailjs.init(PUBLIC_KEY);
-
-document.getElementById('topup-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const form = e.target;
-
-  const templateParams = {
-    uid: form.uid.value,
-    amount: form.amount.value,
-  };
-
-  emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-    .then(() => {
-      document.getElementById('status').innerText = '✅ Order submitted successfully!';
-      form.reset();
-    }, (error) => {
-      console.error('FAILED...', error);
-      alert('❌ Error: ' + JSON.stringify(error)); // Mobile me dikhega
-      document.getElementById('status').innerText = '❌ Failed to submit order. Try again.';
-    });
-});
+  <button type="submit">Submit</button>
+  <div id="status" style="margin-top:10px;color:green;"></div>
+</form>
