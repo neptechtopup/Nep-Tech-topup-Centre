@@ -1,14 +1,24 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fire Topup</title>
+    <title>Free Fire Top-up Form</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        input, select, button { margin: 10px; padding: 8px; }
-        img { max-width: 300px; margin-top: 20px; border-radius: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input, select {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+        }
+        img {
+            max-width: 300px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -18,22 +28,25 @@
         <input type="text" name="uid" placeholder="Enter UID"><br>
 
         <label>Enter Contact Number:</label><br>
-        <input type="text" name="contact" placeholder="98xxxxxxxx"><br>
+        <input type="text" name="contact" placeholder="98XXXXXXXX"><br>
 
-        <label>Select Diamond Package:</label><br>
+        <label>Select Package:</label><br>
         <select name="package">
-            <option>Choose Package</option>
-            <option value="100">100 Diamonds</option>
-            <option value="200">200 Diamonds</option>
-            <option value="500">500 Diamonds</option>
+            <option value="50">50 Diamond 💎रु 55</option>
+<option value="115">115 Diamond 💎रु 100</option>
+<option value="240">240 Diamond 💎रु 200</option>
+<option value="610">610 Diamond 💎रु 500</option>
+<option value="1240">1240 Diamond 💎रु 900</option>
+<option value="2530">2530 Diamond 💎रु 1950</option>
+<option value="monthly">Monthly Membership 💎रु 950</option>
+<option value="weekly">Weekly Membership 💎रु 200</option>
+<option value="levelup">Level Up Pass 💎रु 200</option>
         </select><br>
 
-        <p><strong>Esewa Number:</strong><br>9821043256</p>
+        <h3>Esewa QR</h3>
+        <img src="esewaqr.png" alt="Esewa QR"><br><br>
 
         <button type="submit">Submit Order</button>
     </form>
-
-    <h3>Esewa QR</h3>
-    <img src="esewa.png" alt="Esewa QR">
 </body>
 </html>
