@@ -27,9 +27,10 @@ document.getElementById('topup-form').addEventListener('submit', function (e) {
         document.getElementById('status').innerText = 'Order submitted successfully!';
         form.reset();
       }, (error) => {
-        console.error('FAILED...', error);
-        document.getElementById('status').innerText = 'Failed to submit order. Try again.';
-      });
+  console.error('FAILED...', error); // Console me error print karega
+  alert('Error: ' + JSON.stringify(error)); // Mobile pe popup me error dikhayega
+  document.getElementById('status').innerText = 'Failed to submit order. Try again.';
+});
   };
 
   if (file) {
