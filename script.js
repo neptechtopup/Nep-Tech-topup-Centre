@@ -20,7 +20,7 @@ document.getElementById('topup-form').addEventListener('submit', function (e) {
       form.reset();
     }, (error) => {
       console.error('FAILED...', error);
-      alert('❌ Error: ' + JSON.stringify(error)); // Mobile me dikhega
+      alert('❌ Error: ' + JSON.stringify(error));
       document.getElementById('status').innerText = '❌ Failed to submit order. Try again.';
     });
 });
