@@ -20,9 +20,8 @@ document.getElementById('topup-form').addEventListener('submit', function (e) {
   reader.onload = function () {
     const img = new Image();
     img.onload = function () {
-      // Resize image to max 500px width and compress to 70% quality
       const canvas = document.createElement('canvas');
-      const MAX_WIDTH = 500;
+      const MAX_WIDTH = 300;  // reduce max width
       const scaleSize = MAX_WIDTH / img.width;
       canvas.width = MAX_WIDTH;
       canvas.height = img.height * scaleSize;
@@ -30,7 +29,8 @@ document.getElementById('topup-form').addEventListener('submit', function (e) {
       const ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      const base64Image = canvas.toDataURL('image/jpeg', 0.7); // compressed image
+      // Reduce quality more to 0.4
+      const base64Image = canvas.toDataURL('image/jpeg', 0.4);
 
       const templateParams = {
         uid: form.uid.value,
